@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="h-screen" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="h-screen flex justify-center items-center">
+   <div class="flex gap-1 bg-gray-200 rounded-xl p-1">
+        <div class="text-white flex justify-center items-center w-[190px] h-[42px] bg-purple-600 rounded-xl cursor-pointer">Regular</div>
+        <div class="text-black flex justify-center items-center w-[190px] h-[42px] rounded-xl cursor-pointer">Enterprise</div>
+   </div>
+</body>
+<script>
+    document.querySelectorAll("div > div").forEach((button, i) => {
+        button.addEventListener("click", (e) => {
+            if (button.classList.contains("text-white")) return;
+
+            button.classList.toggle("text-white");
+            button.classList.toggle("text-black");
+            button.classList.toggle("bg-purple-600");
+
+            const otherButton = i === 0 ? button.nextElementSibling : button.previousElementSibling;
+
+            otherButton.classList.toggle("text-white");
+            otherButton.classList.toggle("text-black");
+            otherButton.classList.toggle("bg-purple-600");
+        })
+    });
+</script>
+</html>
